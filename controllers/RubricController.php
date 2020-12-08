@@ -13,13 +13,20 @@ class RubricController extends ActiveController
     {
         $actions = parent::actions();
 
-        unset($actions['index'], $actions['create']);
+        unset($actions['index'], $actions['view'], $actions['update'], $actions['delete']);
 
         return $actions;
     }
 
     public function actionIndex(): array
     {
-        return Rubric::find()->where(['parent_id' => null])->all();
+        return Rubric::find()
+            ->with('news')
+            ->where(['parent_id' => null])->all();
+    }
+
+    public function actionView($id)
+    {
+//        return Rubric::find()->with('newsRubrics')->where(['parent_id' => null])->all();
     }
 }

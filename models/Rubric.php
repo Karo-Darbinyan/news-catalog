@@ -55,7 +55,7 @@ class Rubric extends ActiveRecord
 
     public function fields(): array
     {
-        return parent::fields() + ['rubrics'];
+        return parent::fields() + ['news', 'rubrics'];
     }
 
     /**
@@ -86,6 +86,17 @@ class Rubric extends ActiveRecord
     public function getNewsRubrics()
     {
         return $this->hasMany(NewsRubric::class, ['rubric_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[NewsRubrics]].
+     *
+     * @return ActiveQuery|NewsRubricQuery
+     */
+    public function getNews()
+    {
+        return $this->hasMany(News::class, ['id' => 'news_id'])
+            ->via('newsRubrics');
     }
 
     /**

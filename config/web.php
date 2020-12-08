@@ -53,7 +53,7 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['news', 'rubric'],
                     'extraPatterns' => [
-                        'GET news/index' => 'news/index',
+                        'GET news/<id:\d+>' => 'news/view',
                         'GET rubric/index' => 'rubric/index'
                     ],
                     'pluralize' => false

@@ -61,6 +61,18 @@ class News extends ActiveRecord
     }
 
     /**
+     * Gets query for [[NewsRubrics]].
+     *
+     * @return ActiveQuery|NewsRubricQuery
+     */
+    public function getRubrics()
+    {
+        return $this->hasMany(Rubric::class, ['id' =>'rubric_id'])
+            ->via('newsRubrics')
+            ;
+    }
+
+    /**
      * {@inheritdoc}
      * @return NewsQuery the active query used by this AR class.
      */

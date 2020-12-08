@@ -9,18 +9,22 @@ class NewsController extends ActiveController
 {
     public $modelClass = 'app\models\News';
 
-//    public function actions()
-//    {
-//        $actions = parent::actions();
-//
-//        $actions['index']['prepareDataProvider'] = [$this, 'index'];
-//
-//
-//        return $actions;
-//    }
+    public function actions(): array
+    {
+        $actions = parent::actions();
+
+        unset($actions['index'], $actions['view'], $actions['update'], $actions['delete']);
+
+        return $actions;
+    }
 
     public function actionIndex(): array
     {
         return News::find()->all();
+    }
+
+    public function actionView($id)
+    {
+        return News::find()->with('rubrics')->where(['id' => $id])->asArray()->one();
     }
 }
