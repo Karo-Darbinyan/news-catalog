@@ -3,19 +3,19 @@
 use yii\db\Migration;
 
 /**
- * Handles the creation of table `{{%news_heading}}`.
+ * Handles the creation of table `{{%news_rubric}}`.
  */
-class m201208_073613_create_news_heading_table extends Migration
+class m201208_073613_create_news_rubric_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%news_heading}}', [
+        $this->createTable('{{%news_rubric}}', [
             'id' => $this->primaryKey(),
             'news_id' => $this->integer(),
-            'heading_id' => $this->integer()
+            'rubric_id' => $this->integer()
         ]);
 
     }
@@ -25,6 +25,6 @@ class m201208_073613_create_news_heading_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%news_heading}}');
+        $this->dropTable('{{%news_rubric}}');
     }
 }

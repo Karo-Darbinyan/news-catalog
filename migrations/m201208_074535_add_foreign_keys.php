@@ -13,8 +13,8 @@ class m201208_074535_add_foreign_keys extends Migration
     public function safeUp()
     {
         $this->addForeignKey(
-            'fk-news_heading-news_id',
-            'news_heading',
+            'fk-news_rubric-news_id',
+            'news_rubric',
             'news_id',
             'news',
             'id',
@@ -22,19 +22,19 @@ class m201208_074535_add_foreign_keys extends Migration
         );
 
         $this->addForeignKey(
-            'fk-news_heading-heading_id',
-            'news_heading',
-            'heading_id',
-            'heading',
+            'fk-news_rubric-rubric_id',
+            'news_rubric',
+            'rubric_id',
+            'rubric',
             'id',
             'CASCADE'
         );
 
         $this->addForeignKey(
-            'fk-heading-parent_id',
-            'heading',
+            'fk-rubric-parent_id',
+            'rubric',
             'parent_id',
-            'heading',
+            'rubric',
             'id',
             'CASCADE'
         );
@@ -47,23 +47,9 @@ class m201208_074535_add_foreign_keys extends Migration
      */
     public function safeDown()
     {
-        $this->dropForeignKey('fk-news_heading-news_id', 'news_heading');
-        $this->dropForeignKey('fk-news_heading-heading_id', 'news_heading');
-        $this->dropForeignKey('fk-heading-parent_id', 'heading');
+        $this->dropForeignKey('fk-news_rubric-news_id', 'news_rubric');
+        $this->dropForeignKey('fk-news_rubric-rubric_id', 'news_rubric');
+        $this->dropForeignKey('fk-rubric-parent_id', 'rubric');
     }
 
-    /*
-    // Use up()/down() to run migration code without a transaction.
-    public function up()
-    {
-
-    }
-
-    public function down()
-    {
-        echo "m201208_074535_add_foreign_keys cannot be reverted.\n";
-
-        return false;
-    }
-    */
 }

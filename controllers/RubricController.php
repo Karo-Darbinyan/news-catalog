@@ -2,7 +2,7 @@
 
 namespace app\controllers;
 
-use app\models\rubric;
+use app\models\Rubric;
 use yii\rest\ActiveController;
 
 class RubricController extends ActiveController
@@ -20,6 +20,6 @@ class RubricController extends ActiveController
 
     public function actionIndex(): array
     {
-        return rubric::find()->where(['parent_id' => null])->all();
+        return Rubric::find()->where(['parent_id' => null])->all();
     }
 }

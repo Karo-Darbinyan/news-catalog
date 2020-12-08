@@ -13,6 +13,7 @@ $config = [
     ],
     'components' => [
         'request' => [
+            'baseUrl' => '',
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'hmCJK5uZegLNFZt993RAR4Woq5oRB7J3',
         ],
@@ -43,14 +44,22 @@ $config = [
             ],
         ],
         'db' => $db,
-        /*
         'urlManager' => [
             'enablePrettyUrl' => true,
+            'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'class' => 'yii\rest\UrlRule',
+                    'controller' => ['news', 'rubric'],
+                    'extraPatterns' => [
+                        'GET news/index' => 'news/index',
+                        'GET rubric/index' => 'rubric/index'
+                    ],
+                    'pluralize' => false
+                ],
             ],
         ],
-        */
     ],
     'params' => $params,
 ];
