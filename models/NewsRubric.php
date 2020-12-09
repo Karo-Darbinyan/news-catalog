@@ -53,7 +53,7 @@ class NewsRubric extends ActiveRecord
     }
 
     /**
-     * Gets query for [[rubric]].
+     * Gets query for [[Rubric]].
      *
      * @return ActiveQuery|RubricQuery
      */

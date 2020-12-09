@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\models\query\NewsQuery;
 use app\models\query\NewsRubricQuery;
+use yii\base\InvalidConfigException;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
@@ -61,15 +62,15 @@ class News extends ActiveRecord
     }
 
     /**
-     * Gets query for [[NewsRubrics]].
+     * Gets query for [[Rubrics]].
      *
      * @return ActiveQuery|NewsRubricQuery
+     * @throws InvalidConfigException
      */
     public function getRubrics()
     {
         return $this->hasMany(Rubric::class, ['id' =>'rubric_id'])
-            ->via('newsRubrics')
-            ;
+            ->viaTable(NewsRubric::tableName(), ['news_id' => 'id']);
     }
 
     /**

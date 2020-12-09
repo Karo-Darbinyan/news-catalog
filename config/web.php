@@ -9,7 +9,7 @@ $config = [
     'bootstrap' => ['log'],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
-        '@npm'   => '@vendor/npm-asset',
+        '@npm' => '@vendor/npm-asset',
     ],
     'components' => [
         'request' => [
@@ -53,12 +53,15 @@ $config = [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['news', 'rubric'],
                     'extraPatterns' => [
-                        'GET news/<id:\d+>' => 'news/view',
-                        'GET rubric/index' => 'rubric/index'
+                        'GET rubric' => 'rubric/index',
+                        'GET rubric/<id:\d+>' => 'rubric/view',
+                        'GET news' => 'news/index',
+                        'GET news/<id:\d+>' => 'news/view'
                     ],
                     'pluralize' => false
                 ],
             ],
+//            '' => 'site/index',
         ],
     ],
     'params' => $params,

@@ -16,7 +16,7 @@ class m201208_073613_create_news_rubric_table extends Migration
             'id' => $this->primaryKey(),
             'news_id' => $this->integer(),
             'rubric_id' => $this->integer()
-        ]);
+        ], 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB');
 
     }
 

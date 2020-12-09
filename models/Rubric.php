@@ -4,11 +4,12 @@ namespace app\models;
 
 use app\models\query\NewsRubricQuery;
 use app\models\query\RubricQuery;
+use yii\base\InvalidConfigException;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
- * This is the model class for table "rubric".
+ * This is the model class for table "Rubric".
  *
  * @property int $id
  * @property string $name
@@ -69,7 +70,7 @@ class Rubric extends ActiveRecord
     }
 
     /**
-     * Gets query for [[rubrics]].
+     * Gets query for [[Rubrics]].
      *
      * @return ActiveQuery|RubricQuery
      */
@@ -89,14 +90,15 @@ class Rubric extends ActiveRecord
     }
 
     /**
-     * Gets query for [[NewsRubrics]].
+     * Gets query for [[News]].
      *
      * @return ActiveQuery|NewsRubricQuery
+     * @throws InvalidConfigException
      */
     public function getNews()
     {
         return $this->hasMany(News::class, ['id' => 'news_id'])
-            ->via('newsRubrics');
+            ->viaTable(NewsRubric::tableName(), ['rubric_id' => 'id']);
     }
 
     /**
