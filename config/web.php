@@ -49,6 +49,7 @@ $config = [
             'enableStrictParsing' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
                 [
                     'class' => 'yii\rest\UrlRule',
                     'controller' => ['news', 'rubric'],
@@ -61,7 +62,6 @@ $config = [
                     'pluralize' => false
                 ],
             ],
-//            '' => 'site/index',
         ],
     ],
     'params' => $params,

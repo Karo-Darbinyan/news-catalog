@@ -9,7 +9,7 @@ http://demo.site.com
 1. Запустить в командной строке
 
 ```
-$ git clone https://github.com/Karo-Darbinyan/news-catalog
+$ git clone https://webhovhannisyan@bitbucket.org/webhovhannisyan/news-catalog.git
 $ cd /news-catalog
 $ composer install
 ```
